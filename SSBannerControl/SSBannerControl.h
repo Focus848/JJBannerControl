@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
  */
 @interface SSBannerControl : UIControl
 @property (nonatomic, weak) id <SSBannerControlActionHandler> delegate; ///< 代理
-- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)itemDataList;
+- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)dataItemList;
 @end
 
 @protocol SSBannerControlDataItem <NSObject>

@@ -18,7 +18,7 @@
 @implementation SSBannerControl {
     NSTimeInterval _interval;
     NSUInteger _prevIndex, _currIndex, _nextIndex;
-    NSMutableArray<id<SSBannerControlDataItem>> *_itemDataList;
+    NSMutableArray<id<SSBannerControlDataItem>> *_dataItemList;
     UIScrollView *_scrollView;
     UIImageView *_prevImageView, *_currImageView, *_nextImageView;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -52,7 +52,7 @@
     _prevIndex = 0;
     _currIndex = 0;
     _nextIndex = 0;
-    _itemDataList = [NSMutableArray array];
+    _dataItemList = [NSMutableArray array];
     
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
@@ -90,16 +90,16 @@
 }
 
 #pragma mark - api
-- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)itemDataList {
+- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)dataItemList {
     NSAssert(self.delegate, @"Must set delegate!");
-    if (!itemDataList) return;
-    [_itemDataList removeAllObjects];
-    [_itemDataList addObjectsFromArray:itemDataList];
+    if (!dataItemList) return;
+    [_dataItemList removeAllObjects];
+    [_dataItemList addObjectsFromArray:dataItemList];
     
     // 加载初始数据
     _currIndex = 0;
-    _prevIndex = (_itemDataList.count > 1) ? (_itemDataList.count - 1) : 0;
-    _nextIndex = (_itemDataList.count > 1) ? 1: 0;
+    _prevIndex = (_dataItemList.count > 1) ? (_dataItemList.count - 1) : 0;
+    _nextIndex = (_dataItemList.count > 1) ? 1: 0;
     [self loadItemData:_prevIndex onPage:kPrevPage];
     [self loadItemData:_currIndex onPage:kCurrPage];
     [self loadItemData:_nextIndex onPage:kNextPage];
@@ -146,18 +146,18 @@
     // 向左滑动
     if (_scrollView.contentOffset.x > size.width) {
         [self loadItemData:_currIndex onPage:kPrevPage];
-        _currIndex = (_currIndex >= _itemDataList.count - 1) ? 0 : (_currIndex + 1);
+        _currIndex = (_currIndex >= _dataItemList.count - 1) ? 0 : (_currIndex + 1);
         [self loadItemData:_currIndex onPage:kCurrPage];
-        _nextIndex = (_currIndex >= _itemDataList.count - 1) ? 0 : (_currIndex + 1);
+        _nextIndex = (_currIndex >= _dataItemList.count - 1) ? 0 : (_currIndex + 1);
         [self loadItemData:_nextIndex onPage:kNextPage];
     }
     
     // 向右滑动
     if (_scrollView.contentOffset.x < size.width) {
         [self loadItemData:_currIndex onPage:kNextPage];
-        _currIndex = (_currIndex == 0) ? (_itemDataList.count - 1) : (_currIndex - 1);
+        _currIndex = (_currIndex == 0) ? (_dataItemList.count - 1) : (_currIndex - 1);
         [self loadItemData:_currIndex onPage:kCurrPage];
-        _prevIndex = (_currIndex == 0) ? (_itemDataList.count - 1) : (_currIndex - 1);
+        _prevIndex = (_currIndex == 0) ? (_dataItemList.count - 1) : (_currIndex - 1);
         [self loadItemData:_prevIndex onPage:kPrevPage];
     }
     
@@ -166,8 +166,8 @@
 }
 
 - (void)loadItemData:(NSUInteger)itemDataIndex onPage:(NSUInteger)pageIndex {
-    if (itemDataIndex >= _itemDataList.count) return;
-    id<SSBannerControlDataItem> item = [_itemDataList objectAtIndex:itemDataIndex];
+    if (itemDataIndex >= _dataItemList.count) return;
+    id<SSBannerControlDataItem> item = [_dataItemList objectAtIndex:itemDataIndex];
     switch(pageIndex) {
         case kPrevPage:
             [_delegate ssBannerControl:self requestImageData:item forView:_prevImageView];
