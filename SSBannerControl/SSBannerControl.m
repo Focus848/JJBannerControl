@@ -108,6 +108,7 @@
     [_scrollView scrollRectToVisible:CGRectMake(size.width, 0, size.width, size.height) animated:NO];
     [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
     
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startAutoScroll) object:nil];
     [self performSelector:@selector(startAutoScroll) withObject:nil afterDelay:_interval];
 }
 
