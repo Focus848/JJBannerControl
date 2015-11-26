@@ -18,7 +18,7 @@
 @implementation SSBannerControl {
     NSTimeInterval _interval;
     NSUInteger _prevIndex, _currIndex, _nextIndex;
-    NSMutableArray<id<SSBannerControlDataItem>> *_dataItemList;
+    NSMutableArray<id<SSBannerControlDataItemProtocol>> *_dataItemList;
     UIScrollView *_scrollView;
     UIImageView *_prevImageView, *_currImageView, *_nextImageView;
     UITapGestureRecognizer *_tapGestureRecognizer;
@@ -90,7 +90,7 @@
 }
 
 #pragma mark - api
-- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)dataItemList {
+- (void)reload:(NSArray<id<SSBannerControlDataItemProtocol>> *)dataItemList {
     NSAssert(self.delegate, @"Must set delegate!");
     if (!dataItemList) return;
     [_dataItemList removeAllObjects];
@@ -168,7 +168,7 @@
 
 - (void)loadItemData:(NSUInteger)itemDataIndex onPage:(NSUInteger)pageIndex {
     if (itemDataIndex >= _dataItemList.count) return;
-    id<SSBannerControlDataItem> item = [_dataItemList objectAtIndex:itemDataIndex];
+    id<SSBannerControlDataItemProtocol> item = [_dataItemList objectAtIndex:itemDataIndex];
     switch(pageIndex) {
         case kPrevPage:
             [_delegate ssBannerControl:self requestImageData:item forView:_prevImageView];
@@ -186,5 +186,15 @@
 #pragma mark - Touch event
 - (void)touchOnPage:(UITapGestureRecognizer *)tapGesture {
     [_delegate ssBannerControl:self didTouchAtIndex:_currIndex];
+}
+@end
+
+
+@implementation SSBannerControlDataItem
++ (instancetype)dataItemWihtUrlString:(NSString *)urlString caption:(NSString *)caption {
+    SSBannerControlDataItem *dataItem = [SSBannerControlDataItem new];
+    dataItem.url = [NSURL URLWithString:urlString];
+    dataItem.caption = caption;
+    return dataItem;
 }
 @end

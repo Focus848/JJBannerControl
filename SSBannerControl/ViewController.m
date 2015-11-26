@@ -9,27 +9,12 @@
 #import "SSBannerControl.h"
 #import "ViewController.h"
 
-@interface ItemData : NSObject <SSBannerControlDataItem>
-@property (nonatomic) NSURL *url;
-@property (nonatomic) NSString *caption;
-+ (instancetype)dataWithUrlString:(NSString *)urlString caption:(NSString *)caption;
-@end
-
-@implementation ItemData
-+ (instancetype)dataWithUrlString:(NSString *)urlString caption:(NSString *)caption {
-    ItemData *obj = [ItemData new];
-    obj.caption = caption;
-    obj.url = [NSURL URLWithString:urlString];
-    return obj;
-}
-@end
-
 @interface ViewController ()<SSBannerControlActionHandler>
 @end
 
 @implementation ViewController {
     SSBannerControl *_ssBannerControl;
-    NSMutableArray<id<SSBannerControlDataItem>> *_datasource;
+    NSMutableArray<id<SSBannerControlDataItemProtocol>> *_datasource;
     NSMutableDictionary *_dataCache;
 }
 
@@ -42,9 +27,9 @@
     
     _dataCache = [NSMutableDictionary dictionary];
     _datasource = [NSMutableArray array];
-    [_datasource addObject:[ItemData dataWithUrlString:url0.absoluteString caption:@"大黑狗"]];
-    [_datasource addObject:[ItemData dataWithUrlString:url1.absoluteString caption:@"小白狗"]];
-    [_datasource addObject:[ItemData dataWithUrlString:url2.absoluteString caption:@"小黑狗"]];
+    [_datasource addObject:[SSBannerControlDataItem dataItemWihtUrlString:url0.absoluteString caption:@"大黑狗"]];
+    [_datasource addObject:[SSBannerControlDataItem dataItemWihtUrlString:url1.absoluteString caption:@"小白狗"]];
+    [_datasource addObject:[SSBannerControlDataItem dataItemWihtUrlString:url2.absoluteString caption:@"小黑狗"]];
     
     _ssBannerControl = [[SSBannerControl alloc] init];
     _ssBannerControl.delegate = self;
@@ -63,7 +48,7 @@
 }
 
 #pragma mark - SSBannerControlActionHandler
-- (void)ssBannerControl:(SSBannerControl *)bannerControl requestImageData:(id<SSBannerControlDataItem>)item forView:(UIImageView *)imageView {
+- (void)ssBannerControl:(SSBannerControl *)bannerControl requestImageData:(id<SSBannerControlDataItemProtocol>)item forView:(UIImageView *)imageView {
     UIImage *cacheImage = [_dataCache objectForKey:item.url.absoluteString];
     if (cacheImage) {
         imageView.image = cacheImage;
@@ -80,12 +65,12 @@
 }
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index {
-    id<SSBannerControlDataItem> item = [_datasource objectAtIndex:index];
+    id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
     NSLog(@"ScrollTo:%@",item.caption);
 }
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index {
-    id<SSBannerControlDataItem> item = [_datasource objectAtIndex:index];
+    id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
     NSLog(@"TouchOn:%@",item.caption);
 }
 @end

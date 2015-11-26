@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SSBannerControlDataItem,SSBannerControlActionHandler;
+@protocol SSBannerControlDataItemProtocol,SSBannerControlActionHandler;
 
 /// 滚动方向
 typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
@@ -23,19 +23,29 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
  */
 @interface SSBannerControl : UIControl
 @property (nonatomic, weak) id <SSBannerControlActionHandler> delegate; ///< 代理
-- (void)reload:(NSArray<id<SSBannerControlDataItem>> *)dataItemList;
+- (void)reload:(NSArray<id<SSBannerControlDataItemProtocol>> *)dataItemList;
 @end
 
-@protocol SSBannerControlDataItem <NSObject>
+
+@protocol SSBannerControlDataItemProtocol <NSObject>
 @required
 @property (nonatomic) NSURL *url; ///< 图片地址
+@optional
 @property (nonatomic) NSString *caption; ///< 标题
 @end
+
 
 @protocol SSBannerControlActionHandler <NSObject>
 @optional
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index;
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index;
 @required
-- (void)ssBannerControl:(SSBannerControl *)bannerControl requestImageData:(id<SSBannerControlDataItem>)item forView:(UIImageView *)imageView;
+- (void)ssBannerControl:(SSBannerControl *)bannerControl requestImageData:(id<SSBannerControlDataItemProtocol>)item forView:(UIImageView *)imageView;
+@end
+
+
+@interface SSBannerControlDataItem : NSObject<SSBannerControlDataItemProtocol>
+@property (nonatomic) NSURL *url;
+@property (nonatomic) NSString *caption;
++ (instancetype)dataItemWihtUrlString:(NSString *)urlString caption:(NSString *)caption;
 @end
