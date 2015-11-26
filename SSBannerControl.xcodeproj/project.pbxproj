@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD7169FD1C0463BE00D04EB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7169FC1C0463BE00D04EB1 /* main.m */; };
+		CD716A001C0463BE00D04EB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7169FF1C0463BE00D04EB1 /* AppDelegate.m */; };
+		CD716A031C0463BE00D04EB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD716A021C0463BE00D04EB1 /* ViewController.m */; };
+		CD716A061C0463BE00D04EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD716A041C0463BE00D04EB1 /* Main.storyboard */; };
+		CD716A0B1C0463BE00D04EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD716A091C0463BE00D04EB1 /* LaunchScreen.storyboard */; };
+		CD716A301C0463FE00D04EB1 /* SSBannerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD716A2F1C0463FE00D04EB1 /* SSBannerControl.m */; };
+		CD716A311C0463FE00D04EB1 /* SSBannerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD716A2F1C0463FE00D04EB1 /* SSBannerControl.m */; };
+		CD716A321C0463FE00D04EB1 /* SSBannerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD716A2F1C0463FE00D04EB1 /* SSBannerControl.m */; };
+		CD716A791C06AA1100D04EB1 /* banner0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD716A781C06AA1100D04EB1 /* banner0.jpg */; };
+		CD716A7B1C06AA1800D04EB1 /* banner1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD716A7A1C06AA1800D04EB1 /* banner1.jpg */; };
+		CD716A7D1C06AA1F00D04EB1 /* banner2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD716A7C1C06AA1F00D04EB1 /* banner2.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD716A121C0463BE00D04EB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD7169F01C0463BE00D04EB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD7169F71C0463BE00D04EB1;
+			remoteInfo = SSBannerControl;
+		};
+		CD716A1D1C0463BE00D04EB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD7169F01C0463BE00D04EB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD7169F71C0463BE00D04EB1;
+			remoteInfo = SSBannerControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD7169F81C0463BE00D04EB1 /* SSBannerControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSBannerControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD7169FC1C0463BE00D04EB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD7169FE1C0463BE00D04EB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD7169FF1C0463BE00D04EB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD716A011C0463BE00D04EB1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD716A021C0463BE00D04EB1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD716A051C0463BE00D04EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD716A0A1C0463BE00D04EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD716A0C1C0463BE00D04EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD716A111C0463BE00D04EB1 /* SSBannerControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSBannerControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD716A1C1C0463BE00D04EB1 /* SSBannerControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSBannerControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD716A2E1C0463FD00D04EB1 /* SSBannerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBannerControl.h; sourceTree = "<group>"; };
+		CD716A2F1C0463FE00D04EB1 /* SSBannerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBannerControl.m; sourceTree = "<group>"; };
+		CD716A781C06AA1100D04EB1 /* banner0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner0.jpg; sourceTree = "<group>"; };
+		CD716A7A1C06AA1800D04EB1 /* banner1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner1.jpg; sourceTree = "<group>"; };
+		CD716A7C1C06AA1F00D04EB1 /* banner2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner2.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD7169F51C0463BE00D04EB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A0E1C0463BE00D04EB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A191C0463BE00D04EB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD7169EF1C0463BE00D04EB1 = {
+			isa = PBXGroup;
+			children = (
+				CD7169FA1C0463BE00D04EB1 /* SSBannerControl */,
+				CD7169F91C0463BE00D04EB1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD7169F91C0463BE00D04EB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD7169F81C0463BE00D04EB1 /* SSBannerControl.app */,
+				CD716A111C0463BE00D04EB1 /* SSBannerControlTests.xctest */,
+				CD716A1C1C0463BE00D04EB1 /* SSBannerControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD7169FA1C0463BE00D04EB1 /* SSBannerControl */ = {
+			isa = PBXGroup;
+			children = (
+				CD716A781C06AA1100D04EB1 /* banner0.jpg */,
+				CD716A7A1C06AA1800D04EB1 /* banner1.jpg */,
+				CD716A7C1C06AA1F00D04EB1 /* banner2.jpg */,
+				CD716A2E1C0463FD00D04EB1 /* SSBannerControl.h */,
+				CD716A2F1C0463FE00D04EB1 /* SSBannerControl.m */,
+				CD7169FE1C0463BE00D04EB1 /* AppDelegate.h */,
+				CD7169FF1C0463BE00D04EB1 /* AppDelegate.m */,
+				CD716A011C0463BE00D04EB1 /* ViewController.h */,
+				CD716A021C0463BE00D04EB1 /* ViewController.m */,
+				CD716A041C0463BE00D04EB1 /* Main.storyboard */,
+				CD716A091C0463BE00D04EB1 /* LaunchScreen.storyboard */,
+				CD716A0C1C0463BE00D04EB1 /* Info.plist */,
+				CD7169FB1C0463BE00D04EB1 /* Supporting Files */,
+			);
+			path = SSBannerControl;
+			sourceTree = "<group>";
+		};
+		CD7169FB1C0463BE00D04EB1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD7169FC1C0463BE00D04EB1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD7169F71C0463BE00D04EB1 /* SSBannerControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD716A251C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControl" */;
+			buildPhases = (
+				CD7169F41C0463BE00D04EB1 /* Sources */,
+				CD7169F51C0463BE00D04EB1 /* Frameworks */,
+				CD7169F61C0463BE00D04EB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSBannerControl;
+			productName = SSBannerControl;
+			productReference = CD7169F81C0463BE00D04EB1 /* SSBannerControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD716A101C0463BE00D04EB1 /* SSBannerControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD716A281C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControlTests" */;
+			buildPhases = (
+				CD716A0D1C0463BE00D04EB1 /* Sources */,
+				CD716A0E1C0463BE00D04EB1 /* Frameworks */,
+				CD716A0F1C0463BE00D04EB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD716A131C0463BE00D04EB1 /* PBXTargetDependency */,
+			);
+			name = SSBannerControlTests;
+			productName = SSBannerControlTests;
+			productReference = CD716A111C0463BE00D04EB1 /* SSBannerControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CD716A1B1C0463BE00D04EB1 /* SSBannerControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD716A2B1C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControlUITests" */;
+			buildPhases = (
+				CD716A181C0463BE00D04EB1 /* Sources */,
+				CD716A191C0463BE00D04EB1 /* Frameworks */,
+				CD716A1A1C0463BE00D04EB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD716A1E1C0463BE00D04EB1 /* PBXTargetDependency */,
+			);
+			name = SSBannerControlUITests;
+			productName = SSBannerControlUITests;
+			productReference = CD716A1C1C0463BE00D04EB1 /* SSBannerControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD7169F01C0463BE00D04EB1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "李红(lh.coder@foxmail.com)";
+				TargetAttributes = {
+					CD7169F71C0463BE00D04EB1 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					CD716A101C0463BE00D04EB1 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = CD7169F71C0463BE00D04EB1;
+					};
+					CD716A1B1C0463BE00D04EB1 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = CD7169F71C0463BE00D04EB1;
+					};
+				};
+			};
+			buildConfigurationList = CD7169F31C0463BE00D04EB1 /* Build configuration list for PBXProject "SSBannerControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD7169EF1C0463BE00D04EB1;
+			productRefGroup = CD7169F91C0463BE00D04EB1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD7169F71C0463BE00D04EB1 /* SSBannerControl */,
+				CD716A101C0463BE00D04EB1 /* SSBannerControlTests */,
+				CD716A1B1C0463BE00D04EB1 /* SSBannerControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD7169F61C0463BE00D04EB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD716A7D1C06AA1F00D04EB1 /* banner2.jpg in Resources */,
+				CD716A0B1C0463BE00D04EB1 /* LaunchScreen.storyboard in Resources */,
+				CD716A7B1C06AA1800D04EB1 /* banner1.jpg in Resources */,
+				CD716A791C06AA1100D04EB1 /* banner0.jpg in Resources */,
+				CD716A061C0463BE00D04EB1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A0F1C0463BE00D04EB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A1A1C0463BE00D04EB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD7169F41C0463BE00D04EB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD716A031C0463BE00D04EB1 /* ViewController.m in Sources */,
+				CD716A301C0463FE00D04EB1 /* SSBannerControl.m in Sources */,
+				CD716A001C0463BE00D04EB1 /* AppDelegate.m in Sources */,
+				CD7169FD1C0463BE00D04EB1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A0D1C0463BE00D04EB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD716A311C0463FE00D04EB1 /* SSBannerControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD716A181C0463BE00D04EB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD716A321C0463FE00D04EB1 /* SSBannerControl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD716A131C0463BE00D04EB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD7169F71C0463BE00D04EB1 /* SSBannerControl */;
+			targetProxy = CD716A121C0463BE00D04EB1 /* PBXContainerItemProxy */;
+		};
+		CD716A1E1C0463BE00D04EB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD7169F71C0463BE00D04EB1 /* SSBannerControl */;
+			targetProxy = CD716A1D1C0463BE00D04EB1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD716A041C0463BE00D04EB1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD716A051C0463BE00D04EB1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD716A091C0463BE00D04EB1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD716A0A1C0463BE00D04EB1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD716A231C0463BE00D04EB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CD716A241C0463BE00D04EB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD716A261C0463BE00D04EB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SSBannerControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD716A271C0463BE00D04EB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SSBannerControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CD716A291C0463BE00D04EB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SSBannerControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSBannerControl.app/SSBannerControl";
+			};
+			name = Debug;
+		};
+		CD716A2A1C0463BE00D04EB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SSBannerControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SSBannerControl.app/SSBannerControl";
+			};
+			name = Release;
+		};
+		CD716A2C1C0463BE00D04EB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SSBannerControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SSBannerControl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		CD716A2D1C0463BE00D04EB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SSBannerControlUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = love.i520.SSBannerControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SSBannerControl;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD7169F31C0463BE00D04EB1 /* Build configuration list for PBXProject "SSBannerControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD716A231C0463BE00D04EB1 /* Debug */,
+				CD716A241C0463BE00D04EB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD716A251C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD716A261C0463BE00D04EB1 /* Debug */,
+				CD716A271C0463BE00D04EB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD716A281C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD716A291C0463BE00D04EB1 /* Debug */,
+				CD716A2A1C0463BE00D04EB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD716A2B1C0463BE00D04EB1 /* Build configuration list for PBXNativeTarget "SSBannerControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD716A2C1C0463BE00D04EB1 /* Debug */,
+				CD716A2D1C0463BE00D04EB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD7169F01C0463BE00D04EB1 /* Project object */;
+}
