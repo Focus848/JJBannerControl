@@ -31,12 +31,12 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
 @property (nonatomic) NSURL *url; ///< 图片地址
 @end
 
-
 @protocol SSBannerControlActionHandler <NSObject>
 @optional
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index;
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index;
 @required
+/// 由外部处理图像下载、缓存,SSBannerControl的核心功能是提供一个无线循环滚动.
 - (void)ssBannerControl:(SSBannerControl *)bannerControl requestImageData:(id<SSBannerControlDataItemProtocol>)item forView:(UIImageView *)imageView;
 @end
 
