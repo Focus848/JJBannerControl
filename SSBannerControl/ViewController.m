@@ -9,7 +9,7 @@
 #import "SSBannerControl.h"
 #import "ViewController.h"
 
-@interface ViewController ()<SSBannerControlActionHandler>
+@interface ViewController ()<SSBannerControlDelegate>
 @end
 
 @implementation ViewController {
@@ -66,12 +66,12 @@
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index {
     id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
-    NSLog(@"ScrollTo:%@",item.caption);
+    NSLog(@"ScrollTo:%@",item.url.absoluteString);
 }
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index {
     id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
-    NSLog(@"TouchOn:%@",item.caption);
+    NSLog(@"ScrollTo:%@",item.url.absoluteString);
 }
 @end
 

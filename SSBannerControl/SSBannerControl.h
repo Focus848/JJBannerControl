@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SSBannerControlDataItemProtocol,SSBannerControlActionHandler;
+@protocol SSBannerControlDataItemProtocol,SSBannerControlDelegate;
 
 /// 滚动方向
 typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
  * 原理:http://iosdevelopertips.com/user-interface/creating-circular-and-infinite-uiscrollviews.html
  */
 @interface SSBannerControl : UIControl
-@property (nonatomic, weak) id <SSBannerControlActionHandler> delegate; ///< 代理
+@property (nonatomic, weak) id <SSBannerControlDelegate> delegate; ///< 代理
 - (void)reload:(NSArray<id<SSBannerControlDataItemProtocol>> *)dataItemList;
 @end
 
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
 @property (nonatomic) NSURL *url; ///< 图片地址
 @end
 
-@protocol SSBannerControlActionHandler <NSObject>
+@protocol SSBannerControlDelegate <NSObject>
 @optional
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index;
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index;
