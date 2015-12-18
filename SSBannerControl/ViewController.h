@@ -13,3 +13,8 @@
 
 @end
 
+@interface SSBannerControlDataItem : NSObject<SSBannerControlDataItemProtocol>
+@property (nonatomic) NSURL *url;
+@property (nonatomic) NSString *caption;
++ (instancetype)dataItemWihtUrlString:(NSString *)urlString caption:(NSString *)caption;
+@end

@@ -188,11 +188,4 @@
 @end
 
 
-@implementation SSBannerControlDataItem
-+ (instancetype)dataItemWihtUrlString:(NSString *)urlString caption:(NSString *)caption {
-    SSBannerControlDataItem *dataItem = [SSBannerControlDataItem new];
-    dataItem.url = [NSURL URLWithString:urlString];
-    dataItem.caption = caption;
-    return dataItem;
-}
-@end
+
