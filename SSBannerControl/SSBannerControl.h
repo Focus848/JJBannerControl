@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger,SSBannerControlScrollDirection){
 
 @protocol SSBannerControlDataItemProtocol <NSObject>
 @property (nonatomic) NSURL *url; ///< 图片地址
-@property (nonatomic) NSString *caption; ///< 标题
 @end
 
 
