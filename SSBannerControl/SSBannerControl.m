@@ -21,7 +21,6 @@
     NSMutableArray<id<SSBannerControlDataItemProtocol>> *_dataItemList;
     UIScrollView *_scrollView;
     UIImageView *_prevImageView, *_currImageView, *_nextImageView;
-    UITapGestureRecognizer *_tapGestureRecognizer;
     BOOL _isCancelPreviousPerformRequests;
 }
 
@@ -68,8 +67,7 @@
     [_scrollView addSubview:_currImageView];
     [_scrollView addSubview:_nextImageView];
     
-    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchOnPage:)];
-    [self addGestureRecognizer:_tapGestureRecognizer];
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchOnPage:)]];
 }
 
 #pragma mark - layout
