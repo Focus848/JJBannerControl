@@ -65,13 +65,11 @@
 }
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didScrollToIndex:(NSUInteger)index {
-    id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
-    NSLog(@"ScrollTo:%@",item.url.absoluteString);
+    NSLog(@"ScrollTo:%zd",index);
 }
 
 - (void)ssBannerControl:(SSBannerControl *)bannerControl didTouchAtIndex:(NSUInteger)index {
-    id<SSBannerControlDataItemProtocol> item = [_datasource objectAtIndex:index];
-    NSLog(@"ScrollTo:%@",item.url.absoluteString);
+    NSLog(@"TouchOnPage:%zd",index);
 }
 @end
 

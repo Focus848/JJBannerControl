@@ -104,7 +104,9 @@
     
     CGSize size = _scrollView.bounds.size;
     [_scrollView scrollRectToVisible:CGRectMake(size.width, 0, size.width, size.height) animated:NO];
-    [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
+    if (_delegate && [_delegate respondsToSelector:@selector(ssBannerControl:didScrollToIndex:)]) {
+        [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
+    }
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startAutoScroll) object:nil];
     [self performSelector:@selector(startAutoScroll) withObject:nil afterDelay:_interval];
@@ -161,29 +163,26 @@
     }
     
     [_scrollView scrollRectToVisible:CGRectMake(size.width, 0, size.width, size.height) animated:NO];
-    [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
+    if (_delegate &&[ _delegate respondsToSelector:@selector(ssBannerControl:didScrollToIndex:)]) {
+        [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
+    }
 }
 
 - (void)loadItemData:(NSUInteger)itemDataIndex onPage:(NSUInteger)pageIndex {
     if (itemDataIndex >= _dataItemList.count) return;
-    id<SSBannerControlDataItemProtocol> item = [_dataItemList objectAtIndex:itemDataIndex];
-    switch(pageIndex) {
-        case kPrevPage:
-            [_delegate ssBannerControl:self requestImageData:item forView:_prevImageView];
-            break;
-        case kCurrPage:
-            [_delegate ssBannerControl:self requestImageData:item forView:_currImageView];
-            break;
-        case kNextPage:
-            [_delegate ssBannerControl:self requestImageData:item forView:_nextImageView];
-            break;
-        default:break;
+    NSDictionary *imageViewDict = @{@(kPrevPage):_prevImageView,@(kCurrPage):_currImageView,@(kNextPage):_nextImageView};
+    UIImageView *imageView = [imageViewDict objectForKey:@(pageIndex)];
+    if (imageView && _delegate && [_delegate respondsToSelector:@selector(ssBannerControl:requestImageData:forView:)]){
+        id<SSBannerControlDataItemProtocol> item = [_dataItemList objectAtIndex:itemDataIndex];
+        [_delegate ssBannerControl:self requestImageData:item forView:imageView];
     }
 }
 
 #pragma mark - Touch event
 - (void)touchOnPage:(UITapGestureRecognizer *)tapGesture {
-    [_delegate ssBannerControl:self didTouchAtIndex:_currIndex];
+    if (_delegate && [_delegate respondsToSelector:@selector(ssBannerControl:didTouchAtIndex:)]) {
+        [_delegate ssBannerControl:self didTouchAtIndex:_currIndex];
+    }
 }
 @end
 
