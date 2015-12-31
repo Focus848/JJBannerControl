@@ -21,6 +21,7 @@
     NSMutableArray<id<SSBannerControlDataItemProtocol>> *_dataItemList;
     UIScrollView *_scrollView;
     UIImageView *_prevImageView, *_currImageView, *_nextImageView;
+    UITapGestureRecognizer *_tapGestureRecognizer;
     BOOL _isCancelPreviousPerformRequests;
 }
 
@@ -46,20 +47,39 @@
     return self;
 }
 
+/** 初始化 */
 - (void)doInitWork {
-    _interval = 3.0;
+    [self setupVars];
+    [self setupScrollView];
+    [self setupImageView];
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchOnPage:)];
+    [self addGestureRecognizer:_tapGestureRecognizer];
+}
+
+/** 初始化变量*/
+- (void)setupVars {
+    _interval = 6.0;
     _prevIndex = 0;
     _currIndex = 0;
     _nextIndex = 0;
     _dataItemList = [NSMutableArray array];
-    
+}
+
+/** 添加ScrollView */
+- (void)setupScrollView {
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:_scrollView];
+    
+    [self layoutScrollView];
+}
 
+/** 添加ImageView */
+- (void)setupImageView {
     _prevImageView = [[UIImageView alloc] init];
     _currImageView = [[UIImageView alloc] init];
     _nextImageView = [[UIImageView alloc] init];
@@ -67,19 +87,36 @@
     [_scrollView addSubview:_currImageView];
     [_scrollView addSubview:_nextImageView];
     
-    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchOnPage:)]];
+    [self layoutImageViews];
+}
+
+/** 移除ImageView */
+- (void)unsetupllImageView {
+    [_prevImageView removeFromSuperview];
+    [_currImageView removeFromSuperview];
+    [_nextImageView removeFromSuperview];
+}
+
+/** 布局ScrollView */
+- (void)layoutScrollView {
+    CGSize size = self.bounds.size;
+    _scrollView.frame = CGRectMake(0, 0, size.width, size.height);
+    _scrollView.contentSize = CGSizeMake(3 * size.width, size.height);
+}
+
+/** 布局ImageView */
+- (void)layoutImageViews {
+    CGSize size = self.bounds.size;
+    _prevImageView.frame = CGRectMake(0, 0, size.width, size.height);
+    _currImageView.frame = CGRectMake(size.width, 0, size.width, size.height);
+    _nextImageView.frame = CGRectMake(2 * size.width, 0, size.width, size.height);
 }
 
 #pragma mark - layout
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGSize size = self.bounds.size;
-    _scrollView.frame = CGRectMake(0, 0, size.width, size.height);
-    _scrollView.contentSize = CGSizeMake(3 * size.width, size.height);
-    
-    _prevImageView.frame = CGRectMake(0, 0, size.width, size.height);
-    _currImageView.frame = CGRectMake(size.width, 0, size.width, size.height);
-    _nextImageView.frame = CGRectMake(2 * size.width, 0, size.width, size.height);
+    [self layoutScrollView];
+    [self layoutImageViews];
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -90,9 +127,21 @@
 #pragma mark - api
 - (void)reload:(NSArray<id<SSBannerControlDataItemProtocol>> *)dataItemList {
     NSAssert(self.delegate, @"Must set delegate!");
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startAutoScroll) object:nil];
+    
     if (!dataItemList) return;
     [_dataItemList removeAllObjects];
     [_dataItemList addObjectsFromArray:dataItemList];
+    
+    static BOOL needSetupImageViews = NO;
+    if (_dataItemList.count == 0) {
+        [self unsetupllImageView];
+        needSetupImageViews = YES;
+        return;
+    } if (needSetupImageViews) {
+        [self setupImageView];
+    }
     
     // 加载初始数据
     _currIndex = 0;
@@ -104,11 +153,8 @@
     
     CGSize size = _scrollView.bounds.size;
     [_scrollView scrollRectToVisible:CGRectMake(size.width, 0, size.width, size.height) animated:NO];
-    if (_delegate && [_delegate respondsToSelector:@selector(ssBannerControl:didScrollToIndex:)]) {
-        [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
-    }
+    [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
     
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startAutoScroll) object:nil];
     [self performSelector:@selector(startAutoScroll) withObject:nil afterDelay:_interval];
 }
 
@@ -163,28 +209,29 @@
     }
     
     [_scrollView scrollRectToVisible:CGRectMake(size.width, 0, size.width, size.height) animated:NO];
-    if (_delegate &&[ _delegate respondsToSelector:@selector(ssBannerControl:didScrollToIndex:)]) {
-        [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
-    }
+    [_delegate ssBannerControl:self didScrollToIndex:_currIndex];
 }
 
 - (void)loadItemData:(NSUInteger)itemDataIndex onPage:(NSUInteger)pageIndex {
     if (itemDataIndex >= _dataItemList.count) return;
-    NSDictionary *imageViewDict = @{@(kPrevPage):_prevImageView,@(kCurrPage):_currImageView,@(kNextPage):_nextImageView};
-    UIImageView *imageView = [imageViewDict objectForKey:@(pageIndex)];
-    if (imageView && _delegate && [_delegate respondsToSelector:@selector(ssBannerControl:requestImageData:forView:)]){
-        id<SSBannerControlDataItemProtocol> item = [_dataItemList objectAtIndex:itemDataIndex];
-        [_delegate ssBannerControl:self requestImageData:item forView:imageView];
+    id<SSBannerControlDataItemProtocol> item = [_dataItemList objectAtIndex:itemDataIndex];
+    switch(pageIndex) {
+        case kPrevPage:
+            [_delegate ssBannerControl:self requestImageData:item forView:_prevImageView];
+            break;
+        case kCurrPage:
+            [_delegate ssBannerControl:self requestImageData:item forView:_currImageView];
+            break;
+        case kNextPage:
+            [_delegate ssBannerControl:self requestImageData:item forView:_nextImageView];
+            break;
+        default:break;
     }
 }
 
 #pragma mark - Touch event
 - (void)touchOnPage:(UITapGestureRecognizer *)tapGesture {
-    if (_delegate && [_delegate respondsToSelector:@selector(ssBannerControl:didTouchAtIndex:)]) {
-        [_delegate ssBannerControl:self didTouchAtIndex:_currIndex];
-    }
+    [_delegate ssBannerControl:self didTouchAtIndex:_currIndex];
 }
 @end
-
-
 
